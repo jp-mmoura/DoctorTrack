@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'; 
 import MapScreen from '../../MapScreen';
 
 export default function Home() {
   const [text, setText] = useState('');
   const [selectedActivity, setSelectedActivity] = useState();
-  const navigation = useNavigation();
+  const navigation = useNavigation(); 
 
   const onChangeText = (value) => {
     setText(value);
@@ -24,9 +24,13 @@ export default function Home() {
 
   const specialtiesArray = [
     { label: "Selecione a Especialidade", value: "selecione a especialidade", enabled: false, style: { color: "gray" } },
-   ...specialties.map((specialty, index) => specialty),
+    ...specialties.map((specialty, index) => specialty),
   ];
 
+  const handleConfirmLocation = () => {
+    navigation.useNavigation('map', { selectedActivity });
+  };
+  
   return (
     <View style={styles.container}>
       <Image
@@ -53,12 +57,10 @@ export default function Home() {
         numberOfLines={10}
       />
 
-<Button
-  title="Confirmar localização"
-  onPress={() => navigation.navigate('map')}
-  style={[styles.button, { marginBottom: 20 }]} 
-/>
-
+      <Button
+        title="Confirmar a Localização"
+        onPress={handleConfirmLocation} 
+      />
     </View>
   );
 }

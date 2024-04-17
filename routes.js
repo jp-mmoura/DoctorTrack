@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import MapScreen from './MapScreen';
-import Home from './pages/home';
-import Faces from './pages/faces'; 
+import MapScreen from '../MapScreen';
+import Home from '../pages/home';
+import Faces from '../pages/faces'; 
 
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +26,7 @@ export function Routes() {
       />
       <Tab.Screen
         name="faces"
-        component={Faces} // Updated component
+        component={Faces} 
         options={{
           tabBarShowLabel: false,
           headerShown: false,
