@@ -28,7 +28,7 @@ export default function Home() {
   ];
 
   const handleConfirmLocation = () => {
-    navigation.useNavigation('map', { selectedActivity });
+    navigation.navigate('map', { selectedActivity });
   };
   
   return (
